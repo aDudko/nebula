@@ -15,7 +15,7 @@
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>nebula-web-services</artifactId>
+    <artifactId>nebula-web-clients</artifactId>
     <packaging>pom</packaging>
 
 </project>
