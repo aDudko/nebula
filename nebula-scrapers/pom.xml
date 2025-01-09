@@ -20,6 +20,7 @@
 
     <modules>
         <module>twitter-stream-simulator</module>
+        <module>wikimedia-stream-scraper</module>
     </modules>
 
 </project>
