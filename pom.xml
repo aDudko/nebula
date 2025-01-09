@@ -23,18 +23,19 @@
 
     <properties>
         <lombok.version>1.18.34</lombok.version>
-        <spring.version>3.2.5</spring.version>
-        <!-- Kafka -->
+        <!-- spring -->
+        <spring-boot.version>3.2.5</spring-boot.version>
+        <!-- kafka -->
         <spring.kafka.version>3.0.12</spring.kafka.version>
         <kafka.avro.serializer.version>7.5.1</kafka.avro.serializer.version>
         <avro.version>1.11.3</avro.version>
-        <!-- Elastic -->
+        <!-- elastic -->
         <elastic.version>8.17.0</elastic.version>
-        <!-- Java version -->
+        <!-- java -->
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
-        <!-- Encoding -->
+        <!-- encoding -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -44,10 +45,13 @@
         <module>nebula-infra</module>
         <module>nebula-web-clients</module>
         <module>nebula-web-services</module>
+        <module>nebula-scrapers</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+
+            <!-- config -->
             <dependency>
                 <groupId>com.nebula.service</groupId>
                 <artifactId>nebula-applications-config-data</artifactId>
@@ -103,17 +107,52 @@
                 <version>${project.version}</version>
             </dependency>
 
+            <!-- spring-boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- kafka -->
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>${spring.kafka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.confluent</groupId>
+                <artifactId>kafka-avro-serializer</artifactId>
+                <version>${kafka.avro.serializer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro</artifactId>
+                <version>${avro.version}</version>
+            </dependency>
             <!-- elastic -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-                <version>${spring.version}</version>
+                <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.elasticsearch</groupId>
                 <artifactId>elasticsearch</artifactId>
                 <version>${elastic.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -126,14 +165,30 @@
         </dependency>
     </dependencies>
 
+    <repositories>
+        <repository> <!-- For dependency Kafka Avro Serializer -->
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
+
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.plugin.version}</version>
                 <configuration>
-                    <release>17</release>
+                    <release>${maven.compiler.target}</release>
                 </configuration>
             </plugin>
         </plugins>
