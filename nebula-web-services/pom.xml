@@ -18,4 +18,8 @@
     <artifactId>nebula-web-services</artifactId>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>twitter-kafka-to-elastic-service</module>
+    </modules>
+
 </project>
