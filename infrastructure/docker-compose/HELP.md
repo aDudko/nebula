@@ -26,7 +26,7 @@ See: [ZooKeeper Commands: The Four Letter Words](https://zookeeper.apache.org/do
 docker-compose -f common.yml -f kafka_cluster.yml up
 ```
 
-### Init Kafka: create topics (runs one time)
+### Init Kafka: create topics (optional, runs one time)
 
 ```sh
 docker-compose -f common.yml -f config/init_kafka.yml up
