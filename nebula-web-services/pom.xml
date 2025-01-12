@@ -20,6 +20,7 @@
 
     <modules>
         <module>twitter-kafka-to-elastic-service</module>
+        <module>negozio-kafka-to-elastic-service</module>
     </modules>
 
 </project>
