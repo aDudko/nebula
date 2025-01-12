@@ -25,13 +25,13 @@ See: [ZooKeeper Commands: The Four Letter Words](https://zookeeper.apache.org/do
 ## Start cluster of Kafka
 
 ```sh
-docker-compose -f common.yml -f kafka_cluster.yml up
+docker-compose -f common.yml -f kafka-cluster.yml up
 ```
 
 ### Init Kafka: create topics (optional, runs one time)
 
 ```sh
-docker-compose -f common.yml -f config/init_kafka.yml up
+docker-compose -f common.yml -f config/init-kafka.yml up
 ```
 
 ### Check Kafka Manager
@@ -47,11 +47,18 @@ docker-compose -f common.yml -f config/init_kafka.yml up
 ## Start cluster of ELK
 
 ```sh
-docker-compose -f common.yml -f elk_cluster.yml up
+docker-compose -f common.yml -f elk-cluster.yml up
 ```
 
 ### Start cluster of Elastic (optional)
 
 ```sh
-docker-compose -f common.yml -f elastic_cluster.yml up
+docker-compose -f common.yml -f elastic-cluster.yml up
+```
+
+
+## Running simulator web-services
+
+```sh
+docker-compose -f common.yml -f twitter-message-processing.yml up
 ```
