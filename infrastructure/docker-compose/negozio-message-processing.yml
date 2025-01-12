@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+
+    negozio-kafka-to-elastic-service:
+        image: anatolydudko/negozio-kafka-to-elastic-service:${APP_VERSION:-demo}
+        hostname: negozio-kafka-to-elastic-service
+        container_name: negozio-kafka-to-elastic-service
+        ports:
+            - "8383:8383"
+        environment:
+            KAFKA-CONFIG_BOOTSTRAP-SERVERS: kafka-broker-1:9092,kafka-broker-2:9092,kafka-broker-3:9092
+            KAFKA-CONFIG_SCHEMA-REGISTRY-URL: http://schema-registry:8081
+            ELASTIC-CONFIG_CONNECTION-URL: elasticsearch:9200
+        networks:
+            - ${GLOBAL_NETWORK:-service}

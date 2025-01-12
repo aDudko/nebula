@@ -49,16 +49,28 @@ docker-compose -f common.yml -f config/init-kafka.yml up
 ```sh
 docker-compose -f common.yml -f elk-cluster.yml up
 ```
-
-### Start cluster of Elastic (optional)
-
+or if there's a lot of RAM
 ```sh
 docker-compose -f common.yml -f elastic-cluster.yml up
 ```
 
 
-## Running simulator web-services
+## Running web-services
+
+### Option: Simulator
 
 ```sh
 docker-compose -f common.yml -f twitter-message-processing.yml up
+```
+
+### Option: Wikimedia
+
+```sh
+docker-compose -f common.yml -f wikimedia-message-processing.yml up
+```
+
+### Option: Negozio
+
+```sh
+docker-compose -f common.yml -f negozio-message-processing.yml up
 ```
