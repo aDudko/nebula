@@ -5,6 +5,7 @@
   the services `one by one`, monitoring the CPU and memory load.**
 * **❗Each command running in new terminal**
 
+
 ## Start ZooKeeper
 
 ```sh
@@ -19,6 +20,7 @@ echo ruok | nc localhost 2181
 
 The answer should be `imok`.
 See: [ZooKeeper Commands: The Four Letter Words](https://zookeeper.apache.org/doc/r3.1.2/zookeeperAdmin.html#sc_zkCommands)
+
 
 ## Start cluster of Kafka
 
@@ -40,3 +42,16 @@ docker-compose -f common.yml -f config/init_kafka.yml up
     - `Cluster Zookeeper Host` `=` `zookeeper:2181`
     - `->` `Save`
 - `Go to cluster view`
+
+
+## Start cluster of ELK
+
+```sh
+docker-compose -f common.yml -f elk_cluster.yml up
+```
+
+### Start cluster of Elastic (optional)
+
+```sh
+docker-compose -f common.yml -f elastic_cluster.yml up
+```
