@@ -43,7 +43,7 @@
     </properties>
 
     <modules>
-        <module>nebula-applications-config-data</module>
+        <module>applications-config-data</module>
         <module>nebula-common</module>
         <module>nebula-infra</module>
         <module>nebula-web-clients</module>
@@ -56,8 +56,8 @@
 
             <!-- config -->
             <dependency>
-                <groupId>com.nebula.service</groupId>
-                <artifactId>nebula-applications-config-data</artifactId>
+                <groupId>com.applications.config</groupId>
+                <artifactId>applications-config-data</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
