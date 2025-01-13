@@ -55,6 +55,13 @@ docker-compose -f common.yml -f elastic-cluster.yml up
 ```
 
 
+## Start Postgres
+
+```sh
+docker-compose -f common.yml -f postgres.yml up
+```
+
+
 ## Running web-services
 
 ### Option: Simulator
