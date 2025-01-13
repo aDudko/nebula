@@ -32,6 +32,8 @@
         <!-- elastic -->
         <elastic.version>8.17.0</elastic.version>
         <elastic-rest.version>7.17.26</elastic-rest.version>
+        <!-- docs -->
+        <swagger.version>2.5.0</swagger.version>
         <!-- java -->
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -159,6 +161,12 @@
                 <version>${elastic-rest.version}</version>
             </dependency>
 
+            <!--API docs-->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

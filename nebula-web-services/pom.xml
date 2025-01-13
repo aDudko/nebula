@@ -19,9 +19,12 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!-- data mining -->
         <module>twitter-kafka-to-elastic-service</module>
         <module>wikimedia-kafka-to-elastic-service</module>
         <module>negozio-kafka-to-elastic-service</module>
+        <!-- data processing -->
+        <module>nebula-elastic-query-service</module>
     </modules>
 
 </project>
