@@ -23,7 +23,7 @@
 
     <properties>
         <lombok.version>1.18.34</lombok.version>
-        <!-- spring -->
+        <!-- spring-boot -->
         <spring-boot.version>3.2.5</spring-boot.version>
         <!-- kafka -->
         <spring.kafka.version>3.0.12</spring.kafka.version>
@@ -43,7 +43,7 @@
     </properties>
 
     <modules>
-        <module>applications-config-data</module>
+        <module>nebula-app-config-data</module>
         <module>nebula-common</module>
         <module>nebula-infra</module>
         <module>nebula-web-clients</module>
@@ -53,11 +53,10 @@
 
     <dependencyManagement>
         <dependencies>
-
             <!-- config -->
             <dependency>
-                <groupId>com.applications.config</groupId>
-                <artifactId>applications-config-data</artifactId>
+                <groupId>com.nebula.service</groupId>
+                <artifactId>nebula-app-config-data</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
