@@ -61,6 +61,12 @@ docker-compose -f common.yml -f elastic-cluster.yml up
 docker-compose -f common.yml -f postgres.yml up
 ```
 
+### Init Postgres: create schemas and tables
+
+```sh
+docker-compose -f common.yml -f config/init-postgres.yml up
+```
+
 
 ## Running web-services
 

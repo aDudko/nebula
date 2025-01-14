@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+
+    init-postgres:
+        image: anatolydudko/nebula-db-migrator:${APP_VERSION:-demo}
+        container_name: nebula-db-migrator
+        environment:
+            SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+            DATABASE_USERNAME: ${DATABASE_USERNAME:-postgres}
+            DATABASE_PASSWORD: ${DATABASE_PASSWORD:-postgres}
+        networks:
+            - ${GLOBAL_NETWORK:-service}
